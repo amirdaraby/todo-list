@@ -33,6 +33,10 @@ docker exec -t todo_list_php bash -c "php artisan key:generate"
 ```bash
 docker exec -t todo_list_php bash -c "php artisan migrate"
 ```
+* #### Seed Database (categories)
+```bash
+docker exec -t todo_list_php bash -c "php artisan db:seed"
+```
 * #### Install resources and start Horizon
 ```bash
 docker exec -t todo_list_php bash -c "php artisan horizon:install"
