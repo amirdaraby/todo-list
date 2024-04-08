@@ -9,7 +9,7 @@
 ```bash
     cp .env.example .env
 ```
-
+* ### Check `APP_PORT` in `.env`, the variable is set to have a port outside of docker container
 * ### Since this project uses email verification, please add your email configuration in `.env`
 * ### in `.env`, `WWW_USER` is set to 1000 by default, change it if you prefer something else 
 * ### Check the Database variables in `env`. since project is dockerized, there is a variable named `DB_EXTERNAL_PORT` which is MySQL port outside the docker container
@@ -23,35 +23,35 @@
 ## Dependencies and Docs
 * ### Install dependencies using composer
 ```bash
-    docker exec -t todo_list_php -c "composer install" 
+docker exec -t todo_list_php bash -c "composer install -q --no-interaction --no-scripts --prefer-dist" 
 ``` 
 * ### Generate app key
 ```bash
-    docker exec -t todo_list_php -c "php artisan key:generate"
+docker exec -t todo_list_php bash -c "php artisan key:generate"
 ```
 * ### Migrate Database
 ```bash
-    docker exec -t todo_list_php -c "php artisan migrate"
+docker exec -t todo_list_php bash -c "php artisan migrate"
 ```
 * ### Install resources and start Horizon
 ```bash
-    docker exec -t todo_list_php -c "php artisan horizon:install"
+docker exec -t todo_list_php bash -c "php artisan horizon:install"
 ```
 ```bash
-    docker exec -t todo_list_php -c "php artisan horizon"
+docker exec -t todo_list_php bash -c "php artisan horizon"
 ```
 
 ---
 
 # Generate Docs
 ```bash
-    docker exec -t todo_list_php -c "php artisan laravel-request-docs:export"
+docker exec -t todo_list_php bash -c "php artisan laravel-request-docs:export"
 ```
 
 # Tests
 * ### Run tests using the following command to make sure app works fine
 ```bash
-    docker exec -t todo_list_php -c "php artisan test"
+docker exec -t todo_list_php bash -c "php artisan test"
 ```
 
 ## Documentation
