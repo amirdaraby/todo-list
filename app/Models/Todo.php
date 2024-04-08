@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Todo extends Model
 {
+    use HasFactory;
+
     public $timestamps = true;
 
     protected $table = "todos";
