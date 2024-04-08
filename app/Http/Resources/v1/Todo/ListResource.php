@@ -17,7 +17,7 @@ class ListResource extends JsonResource
     {
         return [
             "id" => $this->id,
-            "title" => Str::wordWrap($this->description, 30),
+            "title" => Str::substr($this->description, 0, 30) . "...",
             "description" => $this->description,
             "done" => $this->done,
             "due_date" => $this->due_date,

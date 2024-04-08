@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\v1\Todo;
 
+use App\Rules\FutureDate;
 use Illuminate\Foundation\Http\FormRequest;
 
 class UpdateRequest extends FormRequest
@@ -22,9 +23,9 @@ class UpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "description" => ["string"],
+            "description" => ["string", "min:1"],
             "category_id" => ["nullable", "integer", "exists:categories,id"],
-            "due_date" => ["nullable", "date"],
+            "due_date" => ["nullable", "date", new FutureDate],
             "done" => ["boolean"],
         ];
     }

@@ -23,7 +23,7 @@ class StoreRequest extends FormRequest
     public function rules(): array
     {
         return [
-            "description" => ["required", "string"],
+            "description" => ["required", "string", "min:1"],
             "category_id" => ["nullable", "integer", "exists:categories,id"],
             "due_date" => ["required", "date", new FutureDate]
         ];

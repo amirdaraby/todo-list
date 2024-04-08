@@ -11,7 +11,6 @@ use App\Http\Resources\v1\Todo\ListResource;
 use App\Http\Resources\v1\Todo\ShowResource;
 use App\Models\Todo;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
