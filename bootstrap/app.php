@@ -17,7 +17,10 @@ return Application::configure(basePath: dirname(__DIR__))
         apiPrefix: "/api/v1"
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->group('api', [\App\Http\Middleware\AlwaysResponseJson::class]);
+        $middleware->group('api', [
+            \App\Http\Middleware\AlwaysResponseJson::class,
+            \Rakutentech\LaravelRequestDocs\LaravelRequestDocsMiddleware::class
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
 
